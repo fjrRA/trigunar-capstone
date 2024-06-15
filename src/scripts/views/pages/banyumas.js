@@ -2,18 +2,18 @@ const banyumas = {
   async render() {
     try {
       const responseDestinations = await fetch(
-        "https://trigunar-capstone.vercel.app/destinations"
+        "https://trigunar-capstone.vercel.app/#/admin"
       );
       const destinations = await responseDestinations.json();
       const banyumasDestinations = destinations.filter(
         (destination) => destination.city === "Banyumas"
       );
 
-      const responseEvents = await fetch("https://trigunar-capstone.vercel.app/events");
+      const responseEvents = await fetch("https://trigunar-capstone.vercel.app/#/event_admin");
       const events = await responseEvents.json();
       const banyumasEvent = events.filter((event) => event.city === "Banyumas");
 
-      const responseKuliners = await fetch("https://trigunar-capstone.vercel.app/kuliners");
+      const responseKuliners = await fetch("https://trigunar-capstone.vercel.app/#/admin");
       const kuliners = await responseKuliners.json();
       const banyumasKuliner = kuliners.filter(
         (kuliner) => kuliner.city === "Banyumas"

@@ -2,18 +2,18 @@ const lombok = {
   async render() {
     try {
       const responseDestinations = await fetch(
-        "https://trigunar-capstone.vercel.app/destinations"
+        "https://trigunar-capstone.vercel.app/#/admin"
       );
       const destinations = await responseDestinations.json();
       const lombokDestinations = destinations.filter(
         (destination) => destination.city === "Lombok"
       );
 
-      const responseEvents = await fetch("https://trigunar-capstone.vercel.app/events");
+      const responseEvents = await fetch("https://trigunar-capstone.vercel.app/#/event_admin");
       const events = await responseEvents.json();
       const lombokEvents = events.filter((event) => event.city === "Lombok");
 
-      const responseKuliners = await fetch("https://trigunar-capstone.vercel.app/kuliners");
+      const responseKuliners = await fetch("https://trigunar-capstone.vercel.app/#/kuliner_admin");
       const kuliners = await responseKuliners.json();
       const lombokKuliner = kuliners.filter(
         (kuliner) => kuliner.city === "Lombok"

@@ -1,7 +1,7 @@
 const detail = {
     async render() {
         const id = window.location.hash.split("/")[2];
-        const response = await fetch(`https://trigunar-capstone.vercel.app/destinations/${id}`);
+        const response = await fetch(`https://trigunar-capstone.vercel.app/#/kuliner_admin/${id}`);
         const destination = await response.json();
 
         return `
