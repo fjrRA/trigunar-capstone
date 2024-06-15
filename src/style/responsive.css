@@ -1,0 +1,121 @@
+@media screen and (max-width: 650px) {}
+
+/* untuk detail */
+@media (max-width: 650px) {
+  /* Styles for mobile devices */
+
+  .content {
+    padding: 10px;
+  }
+
+  .thumbnail-gallery {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .thumbnail-gallery img {
+    width: 90px;
+    height: auto;
+  }
+
+  .price-button {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .price-button .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .other-destinations .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .location img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* -------------------------- */
+
+  .hero .hero__title h1 {
+    font-size: 2.2rem;
+  }
+
+  .app-bar .app-bar__brand h1 {
+    font-size: 1.5em;
+  }
+
+  .app-bar .app-bar__navigation ul li {
+    display: inline-block;
+  }
+
+  .app-bar .app-bar__navigation ul li a {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    margin: 0;
+  }
+
+  .app-bar .app-bar__menu {
+    display: inline-block;
+  }
+
+  .app-bar__navigation {
+    top: 92px;
+    z-index: 10;
+    /* width: 100%; */
+    height: 100vh;
+    left: -0.01px;
+    /* padding: 8px; */
+    position: absolute;
+    transition: all 0.3s;
+
+    -webkit-transform: translate(-900px, 0);
+    transform: translate(-900px, 0px);
+
+    transition: transform 0.4s ease;
+  }
+
+  .app-bar__navigation.open {
+    -webkit-transform: translate(0px, 0);
+    transform: translate(0px, 0);
+    background-color: rgb(0, 0, 0, 0.5);
+  }
+
+  .destination-card {
+    width: 500px;
+  }
+
+  .app-bar .app-bar__navigation ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f1f1f1;
+    width: 35vh;
+    height: 100vh;
+    box-shadow: 2px 0 0 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .swiper {
+    width: auto;
+  }
+
+  .swiper-wrapper {
+    background-color: transparent !important;
+    margin: auto -10px !important;
+  }
+
+  .event__item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}

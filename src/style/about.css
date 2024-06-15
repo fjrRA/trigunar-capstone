@@ -1,0 +1,57 @@
+/* Style untuk halaman About */
+.about-page {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.about-page h2 {
+  font-size: 2.8rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.about-page p {
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+.about-page ul {
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.about-page ul li {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.about-page h3 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.about-page h3:first-of-type {
+  margin-top: 30px;
+}
+
+.about-page strong {
+  color: #007bff;
+}
+
+.about-page a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.about-page a:hover {
+  text-decoration: underline;
+}
