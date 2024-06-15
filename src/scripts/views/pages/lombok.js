@@ -31,7 +31,7 @@ const lombok = {
             (destination) => `
               <div class="image-wisata">
                 <a href="#/detail/${destination.id}">
-                  <img src="${destination.image || "./default-image.jpg"
+                  <img src="${destination.image_url || "./default-image.jpg"
               }" alt="${destination.name}" />
                 </a>
                 <h3>${destination.name}</h3>
