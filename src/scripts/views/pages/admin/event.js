@@ -103,9 +103,8 @@ const event_admin = {
           row.innerHTML = `
                   <td>${pkg.title}</td>
                   <td>${pkg.description}</td>
-                  <td><iframe src="${
-                    pkg.location
-                  }" width="100" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></td>
+                  <td><iframe src="${pkg.location
+            }" width="100" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></td>
                   <td>${pkg.city}</td>
                   <td>${pkg.price}</td>
                   <td>${pkg.start_date.split("T")[0]}</td>
