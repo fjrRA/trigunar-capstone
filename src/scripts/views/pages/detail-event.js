@@ -1,7 +1,7 @@
 const event = {
     async render() {
         const id = window.location.hash.split("/")[2];
-        const response = await fetch(`http://localhost:3000/events/${id}`);
+        const response = await fetch(`https://trigunar-capstone.vercel.app/events/${id}`);
         const event = await response.json();
 
         return `

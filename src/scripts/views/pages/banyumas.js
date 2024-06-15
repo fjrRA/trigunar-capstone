@@ -2,18 +2,18 @@ const banyumas = {
   async render() {
     try {
       const responseDestinations = await fetch(
-        "http://localhost:3000/destinations"
+        "https://trigunar-capstone.vercel.app/destinations"
       );
       const destinations = await responseDestinations.json();
       const banyumasDestinations = destinations.filter(
         (destination) => destination.city === "Banyumas"
       );
 
-      const responseEvents = await fetch("http://localhost:3000/events");
+      const responseEvents = await fetch("https://trigunar-capstone.vercel.app/events");
       const events = await responseEvents.json();
       const banyumasEvent = events.filter((event) => event.city === "Banyumas");
 
-      const responseKuliners = await fetch("http://localhost:3000/kuliners");
+      const responseKuliners = await fetch("https://trigunar-capstone.vercel.app/kuliners");
       const kuliners = await responseKuliners.json();
       const banyumasKuliner = kuliners.filter(
         (kuliner) => kuliner.city === "Banyumas"
@@ -27,24 +27,23 @@ const banyumas = {
           <div class="wisata">
             <div class="container-wisata">
               ${banyumasDestinations
-                .map(
-                  (destination) => `
+          .map(
+            (destination) => `
                 <div class="image-wisata">
                   <a href="#/detail/${destination.id}">
-                    <img src="${
-                      destination.image_url || "./default-image.jpg"
-                    }" alt="${destination.name}" />
+                    <img src="${destination.image_url || "./default-image.jpg"
+              }" alt="${destination.name}" />
                   </a>
                   <h3>${destination.name}</h3>
                   <p tabindex="0">${destination.description.slice(
-                    0,
-                    150
-                  )}...</p>
+                0,
+                150
+              )}...</p>
                   <div class="rating">Rating: ${destination.rating}</div>
                 </div>
               `
-                )
-                .join("")}
+          )
+          .join("")}
             </div>
           </div>
   
@@ -52,8 +51,8 @@ const banyumas = {
           <div class="wisata">
             <div class="container-wisata">
               ${banyumasKuliner
-                .map(
-                  (kuliner) => `
+          .map(
+            (kuliner) => `
                 <div class="image-wisata">
                  <a href="#/kuliner/${kuliner.id}">
                     <img src="${kuliner.image || "./default-image.jpg"}"
@@ -64,8 +63,8 @@ const banyumas = {
                   <div class="rating">Rating: ${kuliner.rating}</div>
                 </div>
               `
-                )
-                .join("")}
+          )
+          .join("")}
             </div>
           </div>
   
@@ -73,8 +72,8 @@ const banyumas = {
           <div class="wisata">
             <div class="container-wisata">
               ${banyumasEvent
-                .map(
-                  (event) => `
+          .map(
+            (event) => `
                 <div class="image-wisata">
                   <a href="#/event/${event.id}">
                     <img src="${event.image || "./default-image.jpg"}"
@@ -85,8 +84,8 @@ const banyumas = {
                   <div class="price">RP. ${event.price}</div>
                 </div>
               `
-                )
-                .join("")}
+          )
+          .join("")}
             </div>
           </div>
         `;

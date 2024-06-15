@@ -1,7 +1,7 @@
 const home = {
   async render() {
     try {
-      const responseEvents = await fetch("http://localhost:3000/events");
+      const responseEvents = await fetch("https://trigunar-capstone.vercel.app/events");
       const events = await responseEvents.json();
 
       // Mendapatkan bulan saat ini
@@ -94,7 +94,7 @@ const home = {
 
       // Ambil data destinasi dari endpoint destinations
       const responseDestinations = await fetch(
-        "http://localhost:3000/destinations"
+        "https://trigunar-capstone.vercel.app/destinations"
       );
       const destinations = await responseDestinations.json();
 

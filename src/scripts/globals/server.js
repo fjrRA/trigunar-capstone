@@ -13,7 +13,7 @@ const Contact = require("./models/contact");
 const init = async () => {
   const server = Hapi.server({
     port: 3000,
-    host: "localhost",
+    host: "0.0.0.0",
     routes: {
       cors: true, // Set to true to enable CORS for all routes
     },
@@ -21,13 +21,6 @@ const init = async () => {
 
   // Register Inert plugin
   await server.register(inert);
-
-  try {
-    await sequelize.authenticate();
-    console.log('Connection has been established successfully.');
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-  }
 
   // Sinkronisasi database
   await sequelize.sync();
@@ -103,7 +96,7 @@ const init = async () => {
             });
           });
 
-          imageUrl = `http://localhost:3000/public/${filename}`;
+          imageUrl = `0.0.0.0/public/${filename}`;
         } catch (error) {
           console.error("Error saving image:", error);
           return h.response("Internal server error").code(500);
@@ -219,7 +212,7 @@ const init = async () => {
             });
           });
 
-          imageUrl = `http://localhost:3000/public/${filename}`;
+          imageUrl = `0.0.0.0/public/${filename}`;
         } catch (error) {
           console.error("Error saving image:", error);
           return h.response("Internal server error").code(500);
@@ -337,7 +330,7 @@ const init = async () => {
               reject(err);
             });
           });
-          image = `http://localhost:3000/public/${filename}`;
+          image = `0.0.0.0/public/${filename}`;
         } catch (error) {
           console.error("Error saving image:", error);
           return h.response("Internal server error").code(500);
@@ -465,7 +458,7 @@ const init = async () => {
               reject(err);
             });
           });
-          image = `http://localhost:3000/public/${filename}`;
+          image = `0.0.0.0/public/${filename}`;
         } catch (error) {
           console.error("Error saving image:", error);
           return h.response("Internal server error").code(500);
@@ -572,7 +565,7 @@ const init = async () => {
             });
           });
 
-          images = `http://localhost:3000/public/${filename}`;
+          images = `0.0.0.0/public/${filename}`;
         } catch (error) {
           console.error("Error saving image:", error);
           return h.response("Internal server error").code(500);
@@ -688,7 +681,7 @@ const init = async () => {
             });
           });
 
-          images = `http://localhost:3000/public/${filename}`;
+          images = `0.0.0.0/public/${filename}`;
         } catch (error) {
           console.error("Error saving image:", error);
           return h.response("Internal server error").code(500);
