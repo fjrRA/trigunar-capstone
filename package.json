@@ -41,6 +41,8 @@
     "@hapi/inert": "^7.1.0",
     "@sequelize/core": "^7.0.0-alpha.41",
     "@sequelize/postgres": "^7.0.0-alpha.41",
+    "@supabase/supabase-js": "^2.43.4",
+    "dotenv": "^16.4.5",
     "idb": "^8.0.0",
     "joi": "^17.13.1",
     "lazysizes": "^5.3.2",

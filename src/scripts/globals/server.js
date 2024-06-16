@@ -12,8 +12,9 @@ const Contact = require("./models/contact");
 
 const init = async () => {
   const server = Hapi.server({
-    port: 3000,
-    host: "0.0.0.0",
+    port: 5432,
+    host: "aws-0-ap-southeast-1.pooler.supabase.com",
+    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlxeHltaXp0bnh1c3N4ZmhtZnJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTgzNTY3MzgsImV4cCI6MjAzMzkzMjczOH0.wJYcYZq9i27v-mlwH4r3KsV0Pk0HjhJfPBeqYdzx14s",
     routes: {
       cors: true, // Set to true to enable CORS for all routes
     },
@@ -212,7 +213,7 @@ const init = async () => {
             });
           });
 
-          imageUrl = `0.0.0.0/public/${filename}`;
+          imageUrl = uploadPath;
         } catch (error) {
           console.error("Error saving image:", error);
           return h.response("Internal server error").code(500);
@@ -330,7 +331,7 @@ const init = async () => {
               reject(err);
             });
           });
-          image = `0.0.0.0/public/${filename}`;
+          image = uploadPath;
         } catch (error) {
           console.error("Error saving image:", error);
           return h.response("Internal server error").code(500);
@@ -458,7 +459,7 @@ const init = async () => {
               reject(err);
             });
           });
-          image = `0.0.0.0/public/${filename}`;
+          image = uploadPath;
         } catch (error) {
           console.error("Error saving image:", error);
           return h.response("Internal server error").code(500);
@@ -565,7 +566,7 @@ const init = async () => {
             });
           });
 
-          images = `0.0.0.0/public/${filename}`;
+          images = uploadPath;
         } catch (error) {
           console.error("Error saving image:", error);
           return h.response("Internal server error").code(500);
