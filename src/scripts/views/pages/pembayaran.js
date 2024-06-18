@@ -1,30 +1,26 @@
 const pembayaran = {
-    async render() {
-        return `
-    <section class="login-image">
-        <div class="login-container">
-            <img src="./Login/logo-login.png" alt="Travel Icon" class="login-icon">
-            <h1 class="login-title">LOGIN</h1>
-
-            <form class="login-form">
-                <input type="text" placeholder="Username or email" required>
-                <input type="password" placeholder="Password" required>
-                <div class="buttons">
-                    <button type="submit" class="login-btn">Login</button>
-                    <a href="/#/signup" class="signup-btn">Sign Up</a>
-                </div>
-            </form>
-
-            <div class="login-google">
-                <p>Login as</p>
-                <a href=""><img src="./Login/devicon_google.png" alt="Login with Google"></a>
-            </div>
-        </div>
+  async render() {
+    return `
+       <section class="checkout-section">
+      <div class="checkout-section__container">
+        <h1 class="checkout-section__title">PEMBAYARAN</h1>
+  
+        <form class="checkout-section__form">
+          <input type="text" placeholder="Masukan kode booking" required>
+          <input type="text" placeholder="Masukan nama" required>
+          <input type="email" placeholder="Masukan email" required>
+          <input type="number" placeholder="Masukan Nomer HP" required>
+          <div class="buttons">
+            <button type="submit" class="submit-btn">Bayar</button>
+            <a href="/#/home" class="cancel-btn">Cancel</a>
+          </div>
+        </form>
+      </div>
     </section>
-          `;
-    },
+            `;
+  },
 
-    async afterRender() { },
+  async afterRender() {},
 };
 
 export default pembayaran;

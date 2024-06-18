@@ -90,7 +90,7 @@ const kuliner_admin = {
     // Ambil data dari server
     async function fetchPackages() {
       try {
-        const response = await fetch("http://localhost:3000/kuliners");
+        const response = await fetch("http://13.51.121.56:3000/kuliners");
         const kuliners = await response.json();
         packageList.innerHTML = "";
         kuliners.forEach((pkg) => {
@@ -102,7 +102,7 @@ const kuliner_admin = {
               <td>${pkg.city}</td>
               <td>${pkg.rating}</td>
               <td>${pkg.price}</td>
-              <td><img src="${pkg.image}" alt="${pkg.image}" width="100"></td>
+              <td><img src="http://13.51.121.56:3000/${pkg.image}" alt="${pkg.image}" width="100"></td>
               <td class="action">
                 <button class="edit" onclick="editPackage(${pkg.id})">Edit</button>
                 <button class="delete" onclick="deletePackage(${pkg.id})">Delete</button>
@@ -122,8 +122,8 @@ const kuliner_admin = {
       const formData = new FormData(packageForm);
       const method = editingPackageId ? "PUT" : "POST";
       const url = editingPackageId
-        ? `http://localhost:3000/kuliners/${editingPackageId}`
-        : "http://localhost:3000/kuliners";
+        ? `http://13.51.121.56:3000/kuliners/${editingPackageId}`
+        : "http://13.51.121.56:3000/kuliners";
 
       try {
         const response = await fetch(url, {
@@ -146,7 +146,7 @@ const kuliner_admin = {
     // Edit package
     window.editPackage = async (id) => {
       try {
-        const response = await fetch(`http://localhost:3000/kuliners/${id}`);
+        const response = await fetch(`http://13.51.121.56:3000/kuliners/${id}`);
         const pkg = await response.json();
 
         document.getElementById("name").value = pkg.name;
@@ -172,9 +172,12 @@ const kuliner_admin = {
       );
       if (isConfirmed) {
         try {
-          const response = await fetch(`http://localhost:3000/kuliners/${id}`, {
-            method: "DELETE",
-          });
+          const response = await fetch(
+            `http://13.51.121.56:3000/kuliners/${id}`,
+            {
+              method: "DELETE",
+            }
+          );
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }

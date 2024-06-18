@@ -1,0 +1,51 @@
+/* untuk paket wisata */
+.paket-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.paket {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  width: 300px;
+}
+
+.paket img {
+  width: 100%;
+  height: auto;
+}
+
+.paket h2 {
+  background-color: #ffc107;
+  color: #333;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.paket h3 {
+  background-color: cadetblue;
+  color: wheat;
+  padding: 10px;
+  border-radius: 20px;
+  width: 50%;
+  margin: 10px;
+}
+
+.paket ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  text-align: left;
+  padding: 0 20px 20px;
+}
+
+.paket ul li {
+  margin: 10px 0;
+  font-size: 16px;
+}

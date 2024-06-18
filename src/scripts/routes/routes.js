@@ -33,7 +33,7 @@ const routes = {
   "/kota": kota,
   "/about": about,
   "/contact": contact,
-  "/ourTeam": ourTeam,
+  "/our-team": ourTeam,
   "/paket-wisata": paketWisata,
   "/tentang-kita": tentangKita,
   "/pembayaran": pembayaran,
