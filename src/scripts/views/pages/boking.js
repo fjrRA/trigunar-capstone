@@ -1,4 +1,4 @@
-const tentangKita = {
+const booking = {
   async render() {
     return ` 
     <!-- <h2> Ini Adalah halaman Sign Up</h2> -->
@@ -28,11 +28,11 @@ const tentangKita = {
   },
 
   async afterRender() {
-    const header = document.querySelector('.app-bar');
+    const header = document.querySelector(".app-bar");
     if (header) {
-      header.style.display = 'none';
+      header.style.display = "none";
     }
   },
 };
 
-export default tentangKita;
+export default booking;

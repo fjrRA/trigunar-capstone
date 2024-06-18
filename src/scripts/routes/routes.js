@@ -9,8 +9,8 @@ import jambi from "../views/pages/jambi";
 import lombok from "../views/pages/lombok";
 import banyumas from "../views/pages/banyumas";
 
-//untuk halaman signUp
-import signup from "../views/pages/signup";
+//untuk halaman booking
+import signup from "../views/pages/boking";
 
 // untuk halaman detail
 import detail from "../views/pages/detail-wisata";

@@ -1,55 +1,69 @@
 const kuliner = {
-    async render() {
-        const id = window.location.hash.split("/")[2];
-        const response = await fetch(`https://trigunar-capstone.vercel.app/#/kuliner_admin${id}`);
-        const kuliner = await response.json();
+  async render() {
+    const id = window.location.hash.split("/")[2];
+    const response = await fetch(`http://13.51.121.56:3000/kuliners/${id}`);
+    const kuliner = await response.json();
 
-        return `
-           <div class="content" id="content">
-           <h2>Laut-lautan</h2>
-    <div class="section main-image-section">
-        <img src="${kuliner.image}" alt="Main Image" class="main-image">
-    </div>
+    // Ambil data event dari endpoint events
+    const responseEvents = await fetch("http://13.51.121.56:3000/kuliners");
+    const kuliners = await responseEvents.json();
 
-    <div class="section">
-        
-        <div class="price-button">
-            <span class="price">Rp.${kuliner.price},-</span>
-            <a href="#" class="button">Buy Ticket</a>
-        </div>
-    </div>
+    // Urutkan event berdasarkan ID secara descending (dari yang terbesar ke terkecil)
+    kuliners.sort((a, b) => b.id - a.id);
 
-    <div class="section description">
-        <h2>Deskripsi</h2>
-        <p>${kuliner.description}</p>
-    </div>
+    // Ambil 2 data pertama setelah diurutkan
+    const latestkuliners = kuliners.slice(0, 2);
 
-    <div class="location">
-        <h2>Lokasi</h2>
-        <br>
-        <iframe src="${kuliner.location}" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-
-    <div class="section other-destinations">
-        <h2>Temukan Destinasi Lain</h2>
-        <div class="cards">
+    const latestKulinersHTML = latestkuliners
+      .map(
+        (latestkuliners) => `
             <div class="card">
-                <img src="https://via.placeholder.com/300x200" alt="Destination 1">
-                <h3 class="card-title">Mojo Savanna</h3>
-                <span class="card-price">Rp. 30.000,-</span>
+              <a href="#/kuliner/${latestkuliners.id}">
+                <img src="http://13.51.121.56:3000/${latestkuliners.image}" alt="${latestkuliners.title}">
+                <h3 class="card-title">${latestkuliners.name}</h3>
+                <span class="card-price">Rp. ${latestkuliners.price},-</span>
+              </a>
             </div>
-            <div class="card">
-                <img src="https://via.placeholder.com/300x200" alt="Destination 2">
-                <h3 class="card-title">Rinaldi Beef Noodle</h3>
-                <span class="card-price">Rp. 30.000,-</span>
+          `
+      )
+      .join("");
+
+    return `
+            <div class="content" id="content">
+              <div class="section main-image-section">
+                <h2>${kuliner.name}</h2>
+                <br>
+                <img src="http://13.51.121.56:3000/${kuliner.image}" alt="Main Image" class="main-image">
+              </div>
+      
+              <div class="section">
+                <div class="price-button">
+                  <span class="price">Rp. ${kuliner.price},-</span>
+                  <a href="#/booking" class="button">Buy Ticket</a>
+                </div>
+              </div>
+      
+              <div class="section description">
+                <h2>Deskripsi</h2>
+                <p>${kuliner.description}</p>
+              </div>
+      
+              <div class="location">
+                <h2>Lokasi</h2>
+                <iframe src="${kuliner.location}" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+      
+              <div class="section other-destinations">
+                <h2>Event Terbaru</h2>
+                <div class="cards">
+                  ${latestKulinersHTML}
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
-</div>
           `;
-    },
+  },
 
-    async afterRender() { },
+  async afterRender() {},
 };
 
 export default kuliner;

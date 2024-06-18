@@ -1,4 +1,5 @@
-@media screen and (max-width: 650px) {}
+@media screen and (max-width: 650px) {
+}
 
 /* untuk detail */
 @media (max-width: 650px) {
@@ -38,7 +39,8 @@
     width: 100%;
   }
 
-  .location img {
+  .location img,
+  iframe {
     width: 100%;
     max-width: 300px;
   }
