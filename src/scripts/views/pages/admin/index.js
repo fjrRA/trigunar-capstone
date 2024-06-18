@@ -99,7 +99,7 @@ const admin = {
               <td>${pkg.city}</td>
               <td>${pkg.rating}</td>
               <td>${pkg.price}</td>
-              <td><img src="${pkg.image_url}" alt="${pkg.image_url}" width="100"></td>
+              <td><img src="http://13.51.121.56:3000/${pkg.image_url}" alt="${pkg.image_url}" width="100"></td>
               <td class="action">
                 <button class="edit" onclick="editPackage(${pkg.id})">Edit</button>
                 <button class="delete" onclick="deletePackage(${pkg.id})">Delete</button>
