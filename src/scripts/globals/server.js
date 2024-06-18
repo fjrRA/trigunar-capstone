@@ -213,7 +213,7 @@ const init = async () => {
             });
           });
 
-          imageUrl = uploadPath;
+          imageUrl =`public/${filename}`;
         } catch (error) {
           console.error("Error saving image:", error);
           return h.response("Internal server error").code(500);
@@ -331,7 +331,7 @@ const init = async () => {
               reject(err);
             });
           });
-          image = uploadPath;
+          image = `public/${filename}`;
         } catch (error) {
           console.error("Error saving image:", error);
           return h.response("Internal server error").code(500);
@@ -459,14 +459,14 @@ const init = async () => {
               reject(err);
             });
           });
-          image = uploadPath;
+          image = `public/${filename}`;
         } catch (error) {
           console.error("Error saving image:", error);
           return h.response("Internal server error").code(500);
         }
       }
       try {
-        const event = await events.update(
+        const events = await events.update(
           {
             title,
             description,
@@ -566,7 +566,7 @@ const init = async () => {
             });
           });
 
-          images = uploadPath;
+          images = `public/${filename}`;
         } catch (error) {
           console.error("Error saving image:", error);
           return h.response("Internal server error").code(500);
@@ -682,7 +682,7 @@ const init = async () => {
             });
           });
 
-          images = `0.0.0.0/public/${filename}`;
+          images = `public/${filename}`;
         } catch (error) {
           console.error("Error saving image:", error);
           return h.response("Internal server error").code(500);
