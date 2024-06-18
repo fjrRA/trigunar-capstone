@@ -213,7 +213,7 @@ const init = async () => {
             });
           });
 
-          imageUrl =`public/${filename}`;
+          imageUrl = `public/${filename}`;
         } catch (error) {
           console.error("Error saving image:", error);
           return h.response("Internal server error").code(500);
@@ -466,7 +466,7 @@ const init = async () => {
         }
       }
       try {
-        const events = await events.update(
+        const event = await events.update(
           {
             title,
             description,
@@ -481,7 +481,7 @@ const init = async () => {
             where: { id },
           }
         );
-        return h.response(events).code(200);
+        return h.response(event).code(200);
       } catch (error) {
         console.error("Error update events:", error);
         return h.response("Internal server error").code(500);

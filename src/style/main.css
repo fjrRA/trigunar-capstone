@@ -470,7 +470,6 @@ p {
 
 /* style login */
 .login-image {
-  background-image: url("/src/public/Lombok/sembalun-1.jpg");
   object-fit: contain;
   object-position: center;
   background-repeat: no-repeat;
@@ -716,7 +715,6 @@ p {
 
 /* SIGN UP */
 .signup-image {
-  background-image: url("/src/public/Lombok/sembalun-1.jpg");
   object-fit: contain;
   object-position: center;
   background-repeat: no-repeat;

@@ -1,55 +1,69 @@
 const event = {
-    async render() {
-        const id = window.location.hash.split("/")[2];
-        const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlxeHltaXp0bnh1c3N4ZmhtZnJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTgzNTY3MzgsImV4cCI6MjAzMzkzMjczOH0.wJYcYZq9i27v-mlwH4r3KsV0Pk0HjhJfPBeqYdzx14s';
-        const response = await fetch(`https://iqxymiztnxussxfhmfra.supabase.co/rest/v1/events/${id}`, {
-            headers: {
-                'apikey': apiKey,
-                'Authorization': `Bearer ${apiKey}` // Include the Authorization header if required
-            }
-        });
-        const event = await response.json();
+  async render() {
+    const id = window.location.hash.split("/")[2];
+    const response = await fetch(`http://13.51.121.56:3000/events/${id}`);
+    const event = await response.json();
 
-        return `
-            <div class="content" id="content">
-                <h2>Laut-lautan</h2>
-                <div class="section main-image-section">
-                    <img src="${event.image}" alt="Main Image" class="main-image">
-                </div>
+    // Ambil data event dari endpoint events
+    const responseEvents = await fetch("http://13.51.121.56:3000/events");
+    const events = await responseEvents.json();
 
-                <div class="section">
-                    <div class="price-button">
-                        <span class="price">Rp.${event.price},-</span>
-                        <a href="#" class="button">Buy Ticket</a>
-                    </div>
-                </div>
+    // Urutkan event berdasarkan ID secara descending (dari yang terbesar ke terkecil)
+    events.sort((a, b) => b.id - a.id);
 
-                <div class="section description">
-                    <h2>Deskripsi</h2>
-                    <p>${event.description}</p>
-                </div>
+    // Ambil 2 data pertama setelah diurutkan
+    const latestEvents = events.slice(0, 2);
 
-                <div class="location">
-                    <h2>Lokasi</h2>
-                    <br>
-                    <iframe src="${event.location}" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+    const latestEventsHTML = latestEvents
+      .map(
+        (latestEvent) => `
+          <div class="card">
+            <a href="#/event/${latestEvent.id}">
+              <img src="http://13.51.121.56:3000/${latestEvent.image}" alt="${latestEvent.title}">
+              <h3 class="card-title">${latestEvent.title}</h3>
+              <span class="card-price">Rp. ${latestEvent.price},-</span>
+            </a>
+          </div>
+        `
+      )
+      .join("");
 
-                <div class="section other-destinations">
-                    <h2>Temukan Destinasi Lain</h2>
-                    <div class="cards">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/300x200" alt="Destination 1">
-                            <h3 class="card-title">Mojo Savanna</h3>
-                            <span class="card-price">Rp. 30.000,-</span>
-                        </div>
-                    </div>
-                </div>
+    return `
+          <div class="content" id="content">
+            <div class="section main-image-section">
+              <h2>${event.title}</h2>
+              <br>
+              <img src="http://13.51.121.56:3000/${event.image}" alt="Main Image" class="main-image">
             </div>
+    
+            <div class="section">
+              <div class="price-button">
+                <span class="price">Rp. ${event.price},-</span>
+                <a href="#/booking" class="button">Buy Ticket</a>
+              </div>
+            </div>
+    
+            <div class="section description">
+              <h2>Deskripsi</h2>
+              <p>${event.description}</p>
+            </div>
+    
+            <div class="location">
+              <h2>Lokasi</h2>
+              <iframe src="${event.location}" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+    
+            <div class="section other-destinations">
+              <h2>Event Terbaru</h2>
+              <div class="cards">
+                ${latestEventsHTML}
+              </div>
+            </div>
+          </div>
         `;
-    },
+  },
 
-    async afterRender() { },
+  async afterRender() {},
 };
 
 export default event;
