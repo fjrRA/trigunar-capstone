@@ -80,7 +80,7 @@ const home = {
                   <p>${promoEvent.description}</p>
                 </div>
                 <div class="promo__card">
-                  <img src="${promoEvent.image}" alt="${promoEvent.title}">
+                  <img src="http://13.51.121.56/${promoEvent.image}" alt="${promoEvent.title}">
                   <div class="promo__card-details">
                     <h3>Lokasi</h3>
                     <h4>${promoEvent.city}</h4>
