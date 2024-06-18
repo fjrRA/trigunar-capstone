@@ -98,7 +98,7 @@ const kuliner_admin = {
           row.innerHTML = `
               <td>${pkg.name}</td>
               <td>${pkg.description}</td>
-              <td>${pkg.location}</td>
+              <iframe src="${pkg.location}" width="150" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               <td>${pkg.city}</td>
               <td>${pkg.rating}</td>
               <td>${pkg.price}</td>
