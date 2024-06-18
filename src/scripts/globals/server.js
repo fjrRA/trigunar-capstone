@@ -97,7 +97,7 @@ const init = async () => {
             });
           });
 
-          imageUrl = uploadPath;
+          imageUrl = `public/${filename}`;
         } catch (error) {
           console.error("Error saving image:", error);
           return h.response("Internal server error").code(500);

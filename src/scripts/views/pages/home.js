@@ -94,7 +94,7 @@ const home = {
 
       // Ambil data destinasi dari endpoint destinations
       const responseDestinations = await fetch(
-        "https://trigunar-capstone.vercel.app/#/admin"
+        "http://13.51.121.56:3000/destinations"
       );
       const destinations = await responseDestinations.json();
 
@@ -109,7 +109,7 @@ const home = {
         .map((destination) => {
           return `
           <div class="destination-card">
-              <img src="${destination.image_url}" alt="${destination.name}" />
+              <img src="http://13.51.121.56:3000/${destination.image_url}" alt="${destination.name}" />
               <p>Destinasi</p>
                <a href="#/detail/${destination.id}">
               <h3>${destination.name}</h3>

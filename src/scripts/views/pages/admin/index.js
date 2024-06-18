@@ -87,7 +87,7 @@ const admin = {
     // Ambil data dari server
     async function fetchPackages() {
       try {
-        const response = await fetch("http://localhost:3000/destinations");
+        const response = await fetch("http://13.51.121.56:3000/destinations");
         const destinations = await response.json();
         packageList.innerHTML = "";
         destinations.forEach((pkg) => {
@@ -119,8 +119,8 @@ const admin = {
       const formData = new FormData(packageForm);
       const method = editingPackageId ? "PUT" : "POST";
       const url = editingPackageId
-        ? `http://localhost:3000/destinations/${editingPackageId}`
-        : "http://localhost:3000/destinations";
+        ? `http://13.51.121.56:3000/destinations/${editingPackageId}`
+        : "http://13.51.121.56:3000/destinations";
 
       try {
         const response = await fetch(url, {
@@ -144,7 +144,7 @@ const admin = {
     window.editPackage = async (id) => {
       try {
         const response = await fetch(
-          `http://localhost:3000/destinations/${id}`
+          `http://13.51.121.56:3000/destinations/${id}`
         );
         const pkg = await response.json();
         document.getElementById("name").value = pkg.name;
@@ -173,7 +173,7 @@ const admin = {
       if (isConfirmed) {
         try {
           const response = await fetch(
-            `http://localhost:3000/destinations/${id}`,
+            `http://13.51.121.56:3000/destinations/${id}`,
             {
               method: "DELETE",
             }
@@ -190,13 +190,11 @@ const admin = {
 
     fetchPackages();
 
-
-    const header = document.querySelector('.app-bar');
+    const header = document.querySelector(".app-bar");
     if (header) {
-      header.style.display = 'none';
+      header.style.display = "none";
     }
   },
-
 };
 
 export default admin;
