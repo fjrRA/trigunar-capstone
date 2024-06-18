@@ -1,7 +1,7 @@
 const home = {
   async render() {
     try {
-      const responseEvents = await fetch("https://trigunar-capstone.vercel.app/#/event_admin");
+      const responseEvents = await fetch("http://13.51.121.56:3000/events");
       const events = await responseEvents.json();
 
       // Mendapatkan bulan saat ini
