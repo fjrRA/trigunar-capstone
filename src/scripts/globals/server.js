@@ -17,7 +17,12 @@ const init = async () => {
     host: "0.0.0.0",
     //key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlxeHltaXp0bnh1c3N4ZmhtZnJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTgzNTY3MzgsImV4cCI6MjAzMzkzMjczOH0.wJYcYZq9i27v-mlwH4r3KsV0Pk0HjhJfPBeqYdzx14s",
     routes: {
-      cors: true, // Set to true to enable CORS for all routes
+      // cors: true, // Set to true to enable CORS for all routes
+      "cors": {
+        "origin": ["http://localhost:9000", "*"],
+        // "headers": ["Accept", "Content-Type"],
+        // "additionalHeaders": ["X-Requested-With"]
+      }
     },
   });
 
