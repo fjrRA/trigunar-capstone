@@ -9,6 +9,7 @@ const events = require("./models/event");
 const kuliners = require("./models/kuliner");
 
 const Contact = require("./models/contact");
+const bookings = require("./models/booking");
 
 const init = async () => {
   const server = Hapi.server({
@@ -769,6 +770,67 @@ const init = async () => {
           .response({
             error:
               "Failed to save contact information. Please try again later.",
+          })
+          .code(500);
+      }
+    },
+  });
+
+  // ================================ + Bookings + ===============================//
+  // add bookings
+  server.route({
+    method: "POST",
+    path: "/bookings",
+    options: {
+      validate: {
+        payload: Joi.object({
+          booking_id: Joi.number(),
+          id: Joi.number().required(),
+          user_name: Joi.string().required(),
+          user_email: Joi.string().email().required(),
+          No_hp: Joi.number().required(),
+          booking_date: Joi.date().required(),
+        }),
+        failAction: (request, h, err) => {
+          return err;
+        },
+      },
+    },
+    handler: async (request, h) => {
+      const { id, user_name, user_email, No_hp, booking_date } =
+        request.payload;
+
+      try {
+        const destiExists = await destinations.findByPk(id);
+        if (!destiExists) {
+          return h.response({ error: "Place ID not valid" }).code(400);
+        }
+
+        // Simpan data booking ke database dan ambil booking_id yang dihasilkan
+        const newBooking = await bookings.create({
+          id,
+          user_name,
+          user_email,
+          No_hp,
+          booking_date,
+        });
+
+        // Lihat isi newBooking untuk memastikan booking_id ada
+        console.log(newBooking);
+
+        // Kirim respons balik ke klien dengan booking_id
+        return h
+          .response({
+            message: `Terima kasih sudah melakukan booking, harap segera melakukan pembayaran dengan Id Booking ${newBooking.booking_id}`,
+            booking_id: newBooking.booking_id,
+          })
+          .code(200);
+      } catch (error) {
+        console.error("Error saving booking:", error);
+        return h
+          .response({
+            error:
+              "Failed to save booking information. Please try again later.",
           })
           .code(500);
       }

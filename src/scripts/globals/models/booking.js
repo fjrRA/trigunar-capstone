@@ -4,14 +4,18 @@ const { DataTypes } = require("sequelize");
 const bookings = sequelize.define(
   "bookings",
   {
-    id: {
+    booking_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    destination_id: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: "destinations", // Assumes 'places' table exists
+        key: "id",
+      },
     },
     user_name: {
       type: DataTypes.STRING,
@@ -24,17 +28,19 @@ const bookings = sequelize.define(
         isEmail: true,
       },
     },
-    created_at: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
+    No_hp: {
+      type: DataTypes.BIGINT,
       allowNull: false,
-      field: "created_at",
     },
-    updated_at: {
+    booking_date: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
       allowNull: false,
-      field: "updated_at",
+      field: "booking_date",
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   },
   {
