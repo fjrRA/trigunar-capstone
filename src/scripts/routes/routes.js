@@ -1,7 +1,6 @@
 import kota from "../views/pages/kota";
 import paketWisata from "../views/pages/paket-wisata";
 import tentangKita from "../views/pages/tentang-kita";
-import pembayaran from "../views/pages/pembayaran";
 import booking from "../views/pages/boking";
 import home from "../views/pages/home";
 
@@ -37,7 +36,6 @@ const routes = {
   "/our-team": ourTeam,
   "/paket-wisata": paketWisata,
   "/tentang-kita": tentangKita,
-  "/pembayaran": pembayaran,
   "/booking": booking,
   "/jambi": jambi,
   "/lombok": lombok,

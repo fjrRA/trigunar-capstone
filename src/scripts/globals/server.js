@@ -631,7 +631,7 @@ const init = async () => {
     },
   });
 
-  // PUT destinasi
+  // PUT kuliners
   server.route({
     method: "PUT",
     path: "/kuliners/{id}",
@@ -826,7 +826,7 @@ const init = async () => {
         // Kirim respons balik ke klien dengan booking_id
         return h
           .response({
-            message: `Terima kasih sudah melakukan booking, harap segera melakukan pembayaran dengan Id Booking ${newBooking.booking_id} dengan nomer rekening (BRI) 1234-121-10-4`,
+            message: `Terima kasih sudah melakukan booking dengan Id Booking ${newBooking.booking_id}. Kami akan segera menghubungi Anda di email dan nomer telepon terkait booking dan pembayaran. `,
             booking_id: newBooking.booking_id,
           })
           .code(200);
@@ -841,8 +841,96 @@ const init = async () => {
       }
     },
   });
+
+  server.route({
+    method: "PUT",
+    path: "/kuliners/{id}",
+    options: {
+      payload: {
+        output: "stream",
+        parse: true,
+        allow: "multipart/form-data",
+        multipart: true,
+        maxBytes: 50 * 1024 * 1024, // 50MB
+      },
+      validate: {
+        payload: Joi.object({
+          booking_id: Joi.number(),
+          id: Joi.number().required(),
+          user_name: Joi.string().required(),
+          user_email: Joi.string().email().required(),
+          No_hp: Joi.number().required(),
+          booking_date: Joi.date().required(),
+          image: Joi.any().meta({ swaggerType: "file" }).optional(),
+        }),
+        failAction: (request, h, err) => {
+          return err;
+        },
+      },
+    },
+    handler: async (request, h) => {
+      const id = request.params.id;
+      const { user_name, user_email, No_hp, booking_date } =
+        request.payload;
+      const image = request.payload.image;
+
+      let images = null;
+
+      if (image) {
+        const filename = `${Date.now()}-${image.hapi.filename}`;
+        const uploadPath = path.join(__dirname, "public", filename);
+
+        try {
+          await fs.promises.mkdir(path.join(__dirname, "public"), {
+            recursive: true,
+          });
+          const fileStream = fs.createWriteStream(uploadPath);
+
+          await new Promise((resolve, reject) => {
+            image.pipe(fileStream);
+            image.on("end", () => {
+              fileStream.end();
+              resolve();
+            });
+            image.on("error", (err) => {
+              fileStream.end();
+              reject(err);
+            });
+          });
+
+          images = `public/${filename}`;
+        } catch (error) {
+          console.error("Error saving image:", error);
+          return h.response("Internal server error").code(500);
+        }
+      }
+
+      try {
+        const kuliner = await kuliners.update(
+          {
+            // Asumsi ada method update
+            user_name,
+            user_email,
+            No_hp,
+            booking_date,
+            image: images,
+          },
+          {
+            where: { id },
+          }
+        );
+        return h.response(kuliner).code(200);
+      } catch (error) {
+        console.error("Error updating destination:", error);
+        return h.response("Internal server error").code(500);
+      }
+    },
+  });
   await server.start();
   console.log("Server running on %s", server.info.uri);
+
+  // Put bookings
+
 };
 
 process.on("unhandledRejection", (err) => {

@@ -10,7 +10,9 @@ const paketWisata = {
           <div class="paket">
              <img src="./icon/icon-lombok.jpeg" alt="Lombok">
             <h2>Paket 1 | Rp. 1.700.000</h2>
+            <a href="https://www.instagram.com/massgunnnn?igsh=MWl2cTZ3bHhtZnJ4dQ==">
             <h3>Lombok</h3>
+            </a>
             <ul>
               <li>Hotel</li>
               <li>Transportasi</li>
@@ -23,7 +25,9 @@ const paketWisata = {
           <div class="paket">
             <img src="./icon/icon-banyumas.jpeg" alt="banyumas">
             <h2>Paket 2 | Rp. 2.000.000</h2>
+            <a href="https://www.instagram.com/massgunnnn?igsh=MWl2cTZ3bHhtZnJ4dQ==">
             <h3>Banyumas</h3>
+            </a>
             <ul>
               <li>Hotel</li>
               <li>Transportasi</li>
@@ -36,7 +40,9 @@ const paketWisata = {
           <div class="paket">
              <img src="./icon/icon-jambi.jpeg" alt="Jambi">
             <h2>Paket 3 | Rp. 2.500.000</h2>
+            <a href="https://www.instagram.com/massgunnnn?igsh=MWl2cTZ3bHhtZnJ4dQ==">
             <h3>Jambi</h3>
+            </a>
             <ul>
               <li>Hotel</li>
               <li>Transportasi</li>
@@ -52,7 +58,7 @@ const paketWisata = {
     `;
   },
 
-  async afterRender() {},
+  async afterRender() { },
 };
 
 export default paketWisata;

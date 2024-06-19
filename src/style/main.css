@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: #272727;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   width: 100%;
@@ -123,11 +128,9 @@ main {
 
 /* New Spot Section */
 .main-content__new-spot {
-  background: linear-gradient(
-    180deg,
-    rgba(53, 173, 240, 0.17) 0%,
-    rgba(72, 156, 203, 0.17) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(53, 173, 240, 0.17) 0%,
+      rgba(72, 156, 203, 0.17) 100%);
   padding: 10px;
   height: 100%;
 }
@@ -871,7 +874,8 @@ button.edit {
 button.delete {
   background-color: #d32f2f;
   /* margin-right: 10px; */
-  margin: 20px; /* Jarak antara tombol delete dan edit */
+  margin: 20px;
+  /* Jarak antara tombol delete dan edit */
 }
 
 button.delete:hover {
