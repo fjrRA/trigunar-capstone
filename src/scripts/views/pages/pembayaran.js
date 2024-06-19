@@ -10,6 +10,7 @@ const pembayaran = {
           <input type="text" placeholder="Masukan nama" required>
           <input type="email" placeholder="Masukan email" required>
           <input type="number" placeholder="Masukan Nomer HP" required>
+          <input type="file" placeholder="Masukan Nomer HP" required>
           <div class="buttons">
             <button type="submit" class="submit-btn">Bayar</button>
             <a href="/#/home" class="cancel-btn">Cancel</a>
@@ -20,7 +21,7 @@ const pembayaran = {
             `;
   },
 
-  async afterRender() {},
+  async afterRender() { },
 };
 
 export default pembayaran;

@@ -826,7 +826,7 @@ const init = async () => {
         // Kirim respons balik ke klien dengan booking_id
         return h
           .response({
-            message: `Terima kasih sudah melakukan booking, harap segera melakukan pembayaran dengan Id Booking ${newBooking.booking_id}`,
+            message: `Terima kasih sudah melakukan booking, harap segera melakukan pembayaran dengan Id Booking ${newBooking.booking_id} dengan nomer rekening (BRI) 1234-121-10-4`,
             booking_id: newBooking.booking_id,
           })
           .code(200);
