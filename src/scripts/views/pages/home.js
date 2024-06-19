@@ -271,10 +271,12 @@ const home = {
                 <div class="promo__text">
                   <h2>Promo Event: ${promoEvent.title}</h2>
                   <p class="promo__countdown">${promoStartDate} - ${promoEndDate}</p>
-                  <p>${promoEvent.description}</p>
+                  <p tabindex="0">${promoEvent.description.slice(0, 100)}...</p>
                 </div>
                 <div class="promo__card">
-                   <img src="http://13.51.121.56:3000/${promoEvent.image}" alt="${promoEvent.title}">
+                   <img src="http://13.51.121.56:3000/${
+                     promoEvent.image
+                   }" alt="${promoEvent.title}">
                   <div class="promo__card-details">
                     <h3>Lokasi</h3>
                     <h4>${promoEvent.city}</h4>

@@ -5,7 +5,8 @@ const admin = {
           <div class="main-content-admin">
               <aside>
                   <ul>
-                      <li>home</li>
+                      <li><a href="/#/home">Home</a></li>
+                      <li><a href="/#/admin">Destination</a></li>
                       <li><a href="/#/event_admin">Event</a></li>
                       <li><a href="/#/kuliner_admin">Kuliner</a></li>
                   </ul>
@@ -94,15 +95,23 @@ const admin = {
           const row = document.createElement("tr");
           row.innerHTML = `
               <td>${pkg.name}</td>
-              <td>${pkg.description}</td>
-              <iframe src="${pkg.location}" width="150" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+               <td tabindex="0">${pkg.description.slice(0, 80)}...</td>
+              <iframe src="${
+                pkg.location
+              }" width="150" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               <td>${pkg.city}</td>
               <td>${pkg.rating}</td>
               <td>${pkg.price}</td>
-              <td><img src="http://13.51.121.56:3000/${pkg.image_url}" alt="${pkg.image_url}" width="100"></td>
+              <td><img src="http://13.51.121.56:3000/${pkg.image_url}" alt="${
+            pkg.image_url
+          }" width="100"></td>
               <td class="action">
-                <button class="edit" onclick="editPackage(${pkg.id})">Edit</button>
-                <button class="delete" onclick="deletePackage(${pkg.id})">Delete</button>
+                <button class="edit" onclick="editPackage(${
+                  pkg.id
+                })">Edit</button>
+                <button class="delete" onclick="deletePackage(${
+                  pkg.id
+                })">Delete</button>
               </td>
             `;
           packageList.appendChild(row);

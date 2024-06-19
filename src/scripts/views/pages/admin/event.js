@@ -5,12 +5,9 @@ const event_admin = {
           <div class="main-content-admin">
               <aside>
                   <ul>
-                      <li><a href="/#/admin">Home</a></li>
-                      <span></span>
-                      <li>user</li>
+                      <li><a href="/#/home">Home</a></li>
+                      <li><a href="/#/admin">Destination</a></li>
                       <li><a href="/#/event_admin">Event</a></li>
-                      <li>destination</li>
-                      <li>Tri Kota</li>
                       <li><a href="/#/kuiner_admin">Kuliner</a></li>
                   </ul>
               </aside>
@@ -102,7 +99,7 @@ const event_admin = {
           const row = document.createElement("tr");
           row.innerHTML = `
                   <td>${pkg.title}</td>
-                  <td>${pkg.description}</td>
+                   <td tabindex="0">${pkg.description.slice(0, 80)}...</td>
                   <iframe src="${
                     pkg.location
                   }" width="150" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
