@@ -783,6 +783,8 @@ const init = async () => {
 
   // ================================ + Bookings + ===============================//
   // add bookings
+  // ================================ + Bookings + ===============================//
+  // add bookings
   server.route({
     method: "POST",
     path: "/bookings",
@@ -826,7 +828,7 @@ const init = async () => {
         // Kirim respons balik ke klien dengan booking_id
         return h
           .response({
-            message: `Terima kasih sudah melakukan booking dengan Id Booking ${newBooking.booking_id}. Kami akan segera menghubungi Anda di email dan nomer telepon terkait booking dan pembayaran. `,
+            message: `Terima kasih sudah melakukan booking dengan Id Booking ${newBooking.booking_id}. Kami akan segera menghubungi Anda melalui email atau nomor telepon untuk detail booking dan konfirmasi pembayaran.`,
             booking_id: newBooking.booking_id,
           })
           .code(200);
