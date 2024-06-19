@@ -19,7 +19,7 @@ const init = async () => {
     routes: {
       // cors: true, // Set to true to enable CORS for all routes
       "cors": {
-        "origin": ["http://localhost:9000", "*"],
+        "origin": ["*"],
         // "headers": ["Accept", "Content-Type"],
         // "additionalHeaders": ["X-Requested-With"]
       }
