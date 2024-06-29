@@ -38,7 +38,7 @@ const booking = {
           <input type="date" id="booking_date" name="booking_date" required>
           <div class="buttons">
             <button type="submit" class="login-btn">Booking</button>
-            <button type="button" class="signup-btn">Cancel</button>
+            <button type="button" id="cancel-button" class="signup-btn">Cancel</button>
           </div>
         </form>
         <div id="form-response" style="color:#f1f1f1;"></div>
@@ -93,6 +93,13 @@ const booking = {
           "An error occurred. Please try again.";
       }
     });
+
+    const cancelButton = document.getElementById("cancel-button");
+    if (cancelButton) {
+      cancelButton.addEventListener("click", () => {
+        window.history.back();
+      });
+    }
   },
 };
 
