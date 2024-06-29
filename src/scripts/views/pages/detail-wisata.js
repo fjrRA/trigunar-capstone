@@ -42,7 +42,7 @@ const detail = {
             <div class="section">
               <div class="price-button">
                 <span class="price">Rp. ${destination.price},-</span>
-                <a href="#/booking" class="button">Buy Ticket</a>
+                <a href="#/booking" class="button">Booking</a>
               </div>
             </div>
     
@@ -66,7 +66,7 @@ const detail = {
         `;
   },
 
-  async afterRender() {},
+  async afterRender() { },
 };
 
 export default detail;

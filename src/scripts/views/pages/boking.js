@@ -27,7 +27,6 @@ const booking = {
     <section class="signup-image">
       <div class="signup-container">
         <h1>BOOKING</h1>
-        <p>Di atas input name itu nanti ada field id_booking-nya langsung muncul</p>
 
         <form action="" id="form-booking" class="signup-container__signup-field">
           <select id="id" name="id" required>

@@ -39,7 +39,7 @@ const event = {
             <div class="section">
               <div class="price-button">
                 <span class="price">Rp. ${event.price},-</span>
-                <a href="#/booking" class="button">Buy Ticket</a>
+                <a href="#/booking" class="button">Booking</a>
               </div>
             </div>
     
@@ -63,7 +63,7 @@ const event = {
         `;
   },
 
-  async afterRender() {},
+  async afterRender() { },
 };
 
 export default event;

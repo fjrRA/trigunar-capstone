@@ -39,7 +39,7 @@ const kuliner = {
               <div class="section">
                 <div class="price-button">
                   <span class="price">Rp. ${kuliner.price},-</span>
-                  <a href="#/booking" class="button">Buy Ticket</a>
+                  <a href="#/booking" class="button">Buy</a>
                 </div>
               </div>
       
@@ -63,7 +63,7 @@ const kuliner = {
           `;
   },
 
-  async afterRender() {},
+  async afterRender() { },
 };
 
 export default kuliner;

@@ -1,8 +1,8 @@
 const kota = {
-  async render() {
-    return `
-    <h1>Kota</h1>
-    <p>Temukan destinasi impian Anda</p>
+    async render() {
+        return `
+    <h1>Tri Kota</h1>
+    <p>Jelajahi destinasi wisata dengan 3 Kota yang berbeda</p>
 
     <div class="card-container">
          <div class="card">
@@ -37,9 +37,9 @@ const kota = {
         </div>
     </div>
         `;
-  },
+    },
 
-  async afterRender() {},
+    async afterRender() { },
 };
 
 export default kota;

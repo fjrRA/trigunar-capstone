@@ -146,7 +146,7 @@ main {
   display: flex;
   align-items: center;
   gap: 20px;
-  overflow-x: auto;
+  overflow-x: scroll;
   padding: 30px;
 }
 
@@ -155,13 +155,14 @@ main {
   flex-direction: column;
   align-items: center;
   width: 600px;
-  height: 350px;
+  height: 380px;
   background-color: #f1f1f1;
   border: 1px solid #ddd;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 5px;
 }
 
 .destination-card:hover {
@@ -170,7 +171,7 @@ main {
 
 .destination-card img {
   padding: 5px;
-  width: auto;
+  width: 100%;
   height: 50%;
   object-fit: cover;
   object-position: center;
@@ -178,14 +179,15 @@ main {
 }
 
 .destination-card h3 {
-  margin: 20px auto;
+  margin: 10px auto;
   text-align: center;
   font-size: 1.4rem;
 }
 
 .destination-card__desc {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
   margin: 15px auto;
 }
@@ -366,14 +368,15 @@ main {
 
 /* Footer */
 .footer-pembungkus {
-  padding: 15px;
+  height: 15vh;
   background-color: #007bff;
   color: white;
   text-align: center;
+
 }
 
 .footer__social {
-  margin-bottom: 20px;
+  padding: 20px;
   display: flex;
   justify-content: center;
   gap: 15px;
@@ -397,7 +400,8 @@ main {
 }
 
 .footer-deskripsi {
-  padding: 5px;
+  height: 5vh;
+  padding: 7px;
   background-color: black;
   width: 100%;
 }
@@ -747,7 +751,8 @@ p {
   gap: 10px;
 }
 
-.signup-container__signup-field input {
+.signup-container__signup-field input,
+select {
   padding: 20px;
   margin: 10px 0;
   border: none;
