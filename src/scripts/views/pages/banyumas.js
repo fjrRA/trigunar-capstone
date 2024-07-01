@@ -27,24 +27,23 @@ const banyumas = {
           <div class="wisata">
             <div class="container-wisata">
               ${banyumasDestinations
-                .map(
-                  (destination) => `
+          .map(
+            (destination) => `
                 <div class="image-wisata">
                   <a href="#/detail/${destination.id}">
-                    <img src="http://13.51.121.56:3000/${
-                      destination.image_url || "./default-image.jpg"
-                    }" alt="${destination.name}" />
+                    <img src="http://13.51.121.56:3000/${destination.image_url || "./default-image.jpg"
+              }" alt="${destination.name}" />
                   </a>
                   <h3>${destination.name}</h3>
                   <p tabindex="0">${destination.description.slice(
-                    0,
-                    150
-                  )}...</p>
+                0,
+                150
+              )}...</p>
                   <div class="rating">Rating: ${destination.rating}</div>
                 </div>
               `
-                )
-                .join("")}
+          )
+          .join("")}
             </div>
           </div>
   
@@ -52,13 +51,12 @@ const banyumas = {
           <div class="wisata">
             <div class="container-wisata">
               ${banyumasKuliner
-                .map(
-                  (kuliner) => `
+          .map(
+            (kuliner) => `
                 <div class="image-wisata">
                  <a href="#/kuliner/${kuliner.id}">
-                    <img src="http://13.51.121.56:3000/${
-                      kuliner.image || "./default-image.jpg"
-                    }"
+                    <img src="http://13.51.121.56:3000/${kuliner.image || "./default-image.jpg"
+              }"
                      alt="${kuliner.name}" />
                   </a>
                   <h3>${kuliner.name}</h3>
@@ -66,8 +64,8 @@ const banyumas = {
                   <div class="rating">Rating: ${kuliner.rating}</div>
                 </div>
               `
-                )
-                .join("")}
+          )
+          .join("")}
             </div>
           </div>
   
@@ -75,13 +73,12 @@ const banyumas = {
           <div class="wisata">
             <div class="container-wisata">
               ${banyumasEvent
-                .map(
-                  (event) => `
+          .map(
+            (event) => `
                 <div class="image-wisata">
                   <a href="#/event/${event.id}">
-                    <img src="http://13.51.121.56:3000/${
-                      event.image || "./default-image.jpg"
-                    }"
+                    <img src="http://13.51.121.56:3000/${event.image || "./default-image.jpg"
+              }"
                      alt="${event.title}" />
                   </a>
                   <h3>${event.title}</h3>
@@ -89,8 +86,8 @@ const banyumas = {
                   <div class="price">RP. ${event.price}</div>
                 </div>
               `
-                )
-                .join("")}
+          )
+          .join("")}
             </div>
           </div>
         `;
