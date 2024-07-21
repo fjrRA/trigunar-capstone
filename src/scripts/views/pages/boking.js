@@ -2,7 +2,7 @@ const booking = {
   async render() {
     let destinations = [];
     try {
-      const response = await fetch("http://13.51.121.56:3000/destinations");
+      const response = await fetch("http://16.171.208.155:3000/destinations");
       destinations = await response.json();
 
       // Cek apakah data yang diambil adalah array
@@ -69,7 +69,7 @@ const booking = {
       };
 
       try {
-        const response = await fetch("http://13.51.121.56:3000/bookings", {
+        const response = await fetch("http://16.171.208.155:3000/bookings", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

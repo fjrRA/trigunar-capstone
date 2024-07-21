@@ -1,11 +1,11 @@
 const kuliner = {
   async render() {
     const id = window.location.hash.split("/")[2];
-    const response = await fetch(`http://13.51.121.56:3000/kuliners/${id}`);
+    const response = await fetch(`http://16.171.208.155:3000/kuliners/${id}`);
     const kuliner = await response.json();
 
     // Ambil data event dari endpoint events
-    const responseEvents = await fetch("http://13.51.121.56:3000/kuliners");
+    const responseEvents = await fetch("http://16.171.208.155:3000/kuliners");
     const kuliners = await responseEvents.json();
 
     // Urutkan event berdasarkan ID secara descending (dari yang terbesar ke terkecil)
@@ -19,7 +19,7 @@ const kuliner = {
         (latestkuliners) => `
             <div class="card">
               <a href="#/kuliner/${latestkuliners.id}">
-                <img src="http://13.51.121.56:3000/${latestkuliners.image}" alt="${latestkuliners.title}">
+                <img src="http://16.171.208.155:3000/${latestkuliners.image}" alt="${latestkuliners.title}">
                 <h3 class="card-title">${latestkuliners.name}</h3>
                 <span class="card-price">Rp. ${latestkuliners.price},-</span>
               </a>
@@ -33,7 +33,7 @@ const kuliner = {
               <div class="section main-image-section">
                 <h2>${kuliner.name}</h2>
                 <br>
-                <img src="http://13.51.121.56:3000/${kuliner.image}" alt="Main Image" class="main-image">
+                <img src="http://16.171.208.155:3000/${kuliner.image}" alt="Main Image" class="main-image">
               </div>
       
               <div class="section">

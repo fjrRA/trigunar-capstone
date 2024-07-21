@@ -88,7 +88,7 @@ const admin = {
     // Ambil data dari server
     async function fetchPackages() {
       try {
-        const response = await fetch("http://13.51.121.56:3000/destinations");
+        const response = await fetch("http://16.171.208.155:3000/destinations");
         const destinations = await response.json();
         packageList.innerHTML = "";
         destinations.forEach((pkg) => {
@@ -96,22 +96,18 @@ const admin = {
           row.innerHTML = `
               <td>${pkg.name}</td>
                <td tabindex="0">${pkg.description.slice(0, 80)}...</td>
-              <iframe src="${
-                pkg.location
-              }" width="150" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="${pkg.location
+            }" width="150" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               <td>${pkg.city}</td>
               <td>${pkg.rating}</td>
               <td>${pkg.price}</td>
-              <td><img src="http://13.51.121.56:3000/${pkg.image_url}" alt="${
-            pkg.image_url
-          }" width="100"></td>
+              <td><img src="http://16.171.208.155:3000/${pkg.image_url}" alt="${pkg.image_url
+            }" width="100"></td>
               <td class="action">
-                <button class="edit" onclick="editPackage(${
-                  pkg.id
-                })">Edit</button>
-                <button class="delete" onclick="deletePackage(${
-                  pkg.id
-                })">Delete</button>
+                <button class="edit" onclick="editPackage(${pkg.id
+            })">Edit</button>
+                <button class="delete" onclick="deletePackage(${pkg.id
+            })">Delete</button>
               </td>
             `;
           packageList.appendChild(row);
@@ -128,8 +124,8 @@ const admin = {
       const formData = new FormData(packageForm);
       const method = editingPackageId ? "PUT" : "POST";
       const url = editingPackageId
-        ? `http://13.51.121.56:3000/destinations/${editingPackageId}`
-        : "http://13.51.121.56:3000/destinations";
+        ? `http://16.171.208.155:3000/destinations/${editingPackageId}`
+        : "http://16.171.208.155:3000/destinations";
 
       try {
         const response = await fetch(url, {
@@ -153,7 +149,7 @@ const admin = {
     window.editPackage = async (id) => {
       try {
         const response = await fetch(
-          `http://13.51.121.56:3000/destinations/${id}`
+          `http://16.171.208.155:3000/destinations/${id}`
         );
         const pkg = await response.json();
         document.getElementById("name").value = pkg.name;
@@ -182,7 +178,7 @@ const admin = {
       if (isConfirmed) {
         try {
           const response = await fetch(
-            `http://13.51.121.56:3000/destinations/${id}`,
+            `http://16.171.208.155:3000/destinations/${id}`,
             {
               method: "DELETE",
             }

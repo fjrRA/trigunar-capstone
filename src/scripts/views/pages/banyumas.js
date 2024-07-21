@@ -2,18 +2,18 @@ const banyumas = {
   async render() {
     try {
       const responseDestinations = await fetch(
-        "http://13.51.121.56:3000/destinations"
+        "http://16.171.208.155:3000/destinations"
       );
       const destinations = await responseDestinations.json();
       const banyumasDestinations = destinations.filter(
         (destination) => destination.city === "Banyumas"
       );
 
-      const responseEvents = await fetch("http://13.51.121.56:3000/events");
+      const responseEvents = await fetch("http://16.171.208.155:3000/events");
       const events = await responseEvents.json();
       const banyumasEvent = events.filter((event) => event.city === "Banyumas");
 
-      const responseKuliners = await fetch("http://13.51.121.56:3000/kuliners");
+      const responseKuliners = await fetch("http://16.171.208.155:3000/kuliners");
       const kuliners = await responseKuliners.json();
       const banyumasKuliner = kuliners.filter(
         (kuliner) => kuliner.city === "Banyumas"
@@ -31,7 +31,7 @@ const banyumas = {
             (destination) => `
                 <div class="image-wisata">
                   <a href="#/detail/${destination.id}">
-                    <img src="http://13.51.121.56:3000/${destination.image_url || "./default-image.jpg"
+                    <img src="http://16.171.208.155:3000/${destination.image_url || "./default-image.jpg"
               }" alt="${destination.name}" />
                   </a>
                   <h3>${destination.name}</h3>
@@ -55,7 +55,7 @@ const banyumas = {
             (kuliner) => `
                 <div class="image-wisata">
                  <a href="#/kuliner/${kuliner.id}">
-                    <img src="http://13.51.121.56:3000/${kuliner.image || "./default-image.jpg"
+                    <img src="http://16.171.208.155:3000/${kuliner.image || "./default-image.jpg"
               }"
                      alt="${kuliner.name}" />
                   </a>
@@ -77,7 +77,7 @@ const banyumas = {
             (event) => `
                 <div class="image-wisata">
                   <a href="#/event/${event.id}">
-                    <img src="http://13.51.121.56:3000/${event.image || "./default-image.jpg"
+                    <img src="http://16.171.208.155:3000/${event.image || "./default-image.jpg"
               }"
                      alt="${event.title}" />
                   </a>

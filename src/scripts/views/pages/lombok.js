@@ -2,18 +2,18 @@ const lombok = {
   async render() {
     try {
       const responseDestinations = await fetch(
-        "http://13.51.121.56:3000/destinations"
+        "http://16.171.208.155:3000/destinations"
       );
       const destinations = await responseDestinations.json();
       const lombokDestinations = destinations.filter(
         (destination) => destination.city === "Lombok"
       );
 
-      const responseEvents = await fetch("http://13.51.121.56:3000/events");
+      const responseEvents = await fetch("http://16.171.208.155:3000/events");
       const events = await responseEvents.json();
       const lombokEvents = events.filter((event) => event.city === "Lombok");
 
-      const responseKuliners = await fetch("http://13.51.121.56:3000/kuliners");
+      const responseKuliners = await fetch("http://16.171.208.155:3000/kuliners");
       const kuliners = await responseKuliners.json();
       const lombokKuliner = kuliners.filter(
         (kuliner) => kuliner.city === "Lombok"
@@ -27,21 +27,20 @@ const lombok = {
         <div class="wisata">
           <div class="container-wisata">
             ${lombokDestinations
-              .map(
-                (destination) => `
+          .map(
+            (destination) => `
               <div class="image-wisata">
                 <a href="#/detail/${destination.id}">
-                  <img src="http://13.51.121.56:3000/${
-                    destination.image_url || "./default-image.jpg"
-                  }" alt="${destination.name}" />
+                  <img src="http://16.171.208.155:3000/${destination.image_url || "./default-image.jpg"
+              }" alt="${destination.name}" />
                 </a>
                 <h3>${destination.name}</h3>
                 <p tabindex="0">${destination.description.slice(0, 150)}...</p>
                 <div class="rating">Rating: ${destination.rating}</div>
               </div>
             `
-              )
-              .join("")}
+          )
+          .join("")}
           </div>
         </div>
 
@@ -49,13 +48,12 @@ const lombok = {
         <div class="wisata">
           <div class="container-wisata">
             ${lombokKuliner
-              .map(
-                (kuliner) => `
+          .map(
+            (kuliner) => `
               <div class="image-wisata">
                <a href="#/kuliner/${kuliner.id}">
-                  <img src="http://13.51.121.56:3000/${
-                    kuliner.image || "./default-image.jpg"
-                  }"
+                  <img src="http://16.171.208.155:3000/${kuliner.image || "./default-image.jpg"
+              }"
                    alt="${kuliner.name}" />
                 </a>
                 <h3>${kuliner.name}</h3>
@@ -63,8 +61,8 @@ const lombok = {
                 <div class="rating">Rating: ${kuliner.rating}</div>
               </div>
             `
-              )
-              .join("")}
+          )
+          .join("")}
           </div>
         </div>
 
@@ -72,13 +70,12 @@ const lombok = {
         <div class="wisata">
           <div class="container-wisata">
             ${lombokEvents
-              .map(
-                (event) => `
+          .map(
+            (event) => `
               <div class="image-wisata">
                 <a href="#/event/${event.id}">
-                  <img src="http://13.51.121.56:3000/${
-                    event.image || "./default-image.jpg"
-                  }"
+                  <img src="http://16.171.208.155:3000/${event.image || "./default-image.jpg"
+              }"
                    alt="${event.title}" />
                 </a>
                 <h3>${event.title}</h3>
@@ -86,8 +83,8 @@ const lombok = {
                 <div class="price">RP. ${event.price}</div>
               </div>
             `
-              )
-              .join("")}
+          )
+          .join("")}
           </div>
         </div>
       `;

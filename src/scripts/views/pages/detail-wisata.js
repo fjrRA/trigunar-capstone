@@ -1,12 +1,12 @@
 const detail = {
   async render() {
     const id = window.location.hash.split("/")[2];
-    const response = await fetch(`http://13.51.121.56:3000/destinations/${id}`);
+    const response = await fetch(`http://16.171.208.155:3000/destinations/${id}`);
     const destination = await response.json();
 
     // Ambil data event dari endpoint events
     const responseDestinations = await fetch(
-      "http://13.51.121.56:3000/destinations"
+      "http://16.171.208.155:3000/destinations"
     );
     const destinations = await responseDestinations.json();
 
@@ -22,7 +22,7 @@ const detail = {
         (destination) => `
           <div class="card">
           <a href="#/detail/${destination.id}">
-            <img src="http://13.51.121.56:3000/${destination.image_url}" alt="${destination.name}">
+            <img src="http://16.171.208.155:3000/${destination.image_url}" alt="${destination.name}">
             <h3 class="card-title">${destination.name}</h3>
             <span class="card-price">Rp. ${destination.price},-</span>
             </a>
@@ -36,7 +36,7 @@ const detail = {
             <div class="section main-image-section">
               <h2>${destination.name}</h2>
               <br>
-              <img src="http://13.51.121.56:3000/${destination.image_url}" alt="Main Image" class="main-image">
+              <img src="http://16.171.208.155:3000/${destination.image_url}" alt="Main Image" class="main-image">
             </div>
     
             <div class="section">

@@ -1,11 +1,11 @@
 const event = {
   async render() {
     const id = window.location.hash.split("/")[2];
-    const response = await fetch(`http://13.51.121.56:3000/events/${id}`);
+    const response = await fetch(`http://16.171.208.155:3000/events/${id}`);
     const event = await response.json();
 
     // Ambil data event dari endpoint events
-    const responseEvents = await fetch("http://13.51.121.56:3000/events");
+    const responseEvents = await fetch("http://16.171.208.155:3000/events");
     const events = await responseEvents.json();
 
     // Urutkan event berdasarkan ID secara descending (dari yang terbesar ke terkecil)
@@ -19,7 +19,7 @@ const event = {
         (latestEvent) => `
           <div class="card">
             <a href="#/event/${latestEvent.id}">
-              <img src="http://13.51.121.56:3000/${latestEvent.image}" alt="${latestEvent.title}">
+              <img src="http://16.171.208.155:3000/${latestEvent.image}" alt="${latestEvent.title}">
               <h3 class="card-title">${latestEvent.title}</h3>
               <span class="card-price">Rp. ${latestEvent.price},-</span>
             </a>
@@ -33,7 +33,7 @@ const event = {
             <div class="section main-image-section">
               <h2>${event.title}</h2>
               <br>
-              <img src="http://13.51.121.56:3000/${event.image}" alt="Main Image" class="main-image">
+              <img src="http://16.171.208.155:3000/${event.image}" alt="Main Image" class="main-image">
             </div>
     
             <div class="section">

@@ -36,7 +36,7 @@ const contact = {
       };
 
       try {
-        const response = await fetch("http://13.51.121.56:3000/contact", {
+        const response = await fetch("http://16.171.208.155:3000/contact", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

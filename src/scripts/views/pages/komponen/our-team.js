@@ -46,7 +46,7 @@ const ourTeam = {
           `;
   },
 
-  async afterRender() {},
+  async afterRender() { },
 };
 
 export default ourTeam;

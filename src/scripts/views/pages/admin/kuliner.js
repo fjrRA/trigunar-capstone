@@ -88,7 +88,7 @@ const kuliner_admin = {
     // Ambil data dari server
     async function fetchPackages() {
       try {
-        const response = await fetch("http://13.51.121.56:3000/kuliners");
+        const response = await fetch("http://16.171.208.155:3000/kuliners");
         const kuliners = await response.json();
         packageList.innerHTML = "";
         kuliners.forEach((pkg) => {
@@ -96,22 +96,18 @@ const kuliner_admin = {
           row.innerHTML = `
               <td>${pkg.name}</td>
                <td tabindex="0">${pkg.description.slice(0, 80)}...</td>
-              <iframe src="${
-                pkg.location
-              }" width="150" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="${pkg.location
+            }" width="150" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               <td>${pkg.city}</td>
               <td>${pkg.rating}</td>
               <td>${pkg.price}</td>
-              <td><img src="http://13.51.121.56:3000/${pkg.image}" alt="${
-            pkg.image
-          }" width="100"></td>
+              <td><img src="http://16.171.208.155:3000/${pkg.image}" alt="${pkg.image
+            }" width="100"></td>
               <td class="action">
-                <button class="edit" onclick="editPackage(${
-                  pkg.id
-                })">Edit</button>
-                <button class="delete" onclick="deletePackage(${
-                  pkg.id
-                })">Delete</button>
+                <button class="edit" onclick="editPackage(${pkg.id
+            })">Edit</button>
+                <button class="delete" onclick="deletePackage(${pkg.id
+            })">Delete</button>
               </td>
             `;
           packageList.appendChild(row);
@@ -128,8 +124,8 @@ const kuliner_admin = {
       const formData = new FormData(packageForm);
       const method = editingPackageId ? "PUT" : "POST";
       const url = editingPackageId
-        ? `http://13.51.121.56:3000/kuliners/${editingPackageId}`
-        : "http://13.51.121.56:3000/kuliners";
+        ? `http://16.171.208.155:3000/kuliners/${editingPackageId}`
+        : "http://16.171.208.155:3000/kuliners";
 
       try {
         const response = await fetch(url, {
@@ -152,7 +148,7 @@ const kuliner_admin = {
     // Edit package
     window.editPackage = async (id) => {
       try {
-        const response = await fetch(`http://13.51.121.56:3000/kuliners/${id}`);
+        const response = await fetch(`http://16.171.208.155:3000/kuliners/${id}`);
         const pkg = await response.json();
 
         document.getElementById("name").value = pkg.name;
@@ -179,7 +175,7 @@ const kuliner_admin = {
       if (isConfirmed) {
         try {
           const response = await fetch(
-            `http://13.51.121.56:3000/kuliners/${id}`,
+            `http://16.171.208.155:3000/kuliners/${id}`,
             {
               method: "DELETE",
             }

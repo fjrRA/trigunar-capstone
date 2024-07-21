@@ -92,7 +92,7 @@ const event_admin = {
     // Fetch data from server
     async function fetchPackages() {
       try {
-        const response = await fetch("http://13.51.121.56:3000/events");
+        const response = await fetch("http://16.171.208.155:3000/events");
         const events = await response.json();
         packageList.innerHTML = "";
         events.forEach((pkg) => {
@@ -100,23 +100,19 @@ const event_admin = {
           row.innerHTML = `
                   <td>${pkg.title}</td>
                    <td tabindex="0">${pkg.description.slice(0, 80)}...</td>
-                  <iframe src="${
-                    pkg.location
-                  }" width="150" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <iframe src="${pkg.location
+            }" width="150" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                   <td>${pkg.city}</td>
                   <td>${pkg.price}</td>
                   <td>${pkg.start_date.split("T")[0]}</td>
                   <td>${pkg.end_date.split("T")[0]}</td>
-                  <td><img src="http://13.51.121.56:3000/${pkg.image}" alt="${
-            pkg.image
-          }" width="100"></td>
+                  <td><img src="http://16.171.208.155:3000/${pkg.image}" alt="${pkg.image
+            }" width="100"></td>
                   <td class="action">
-                      <button class="edit" onclick="editPackage(${
-                        pkg.id
-                      })">Edit</button>
-                      <button class="delete" onclick="deletePackage(${
-                        pkg.id
-                      })">Delete</button>
+                      <button class="edit" onclick="editPackage(${pkg.id
+            })">Edit</button>
+                      <button class="delete" onclick="deletePackage(${pkg.id
+            })">Delete</button>
                 </td>
             `;
           packageList.appendChild(row);
@@ -133,8 +129,8 @@ const event_admin = {
       const formData = new FormData(packageForm);
       const method = editingPackageId ? "PUT" : "POST";
       const url = editingPackageId
-        ? `http://13.51.121.56:3000/events/${editingPackageId}`
-        : "http://13.51.121.56:3000/events";
+        ? `http://16.171.208.155:3000/events/${editingPackageId}`
+        : "http://16.171.208.155:3000/events";
 
       try {
         const response = await fetch(url, {
@@ -157,7 +153,7 @@ const event_admin = {
     // Edit package
     window.editPackage = async (id) => {
       try {
-        const response = await fetch(`http://13.51.121.56:3000/events/${id}`);
+        const response = await fetch(`http://16.171.208.155:3000/events/${id}`);
         const pkg = await response.json();
 
         document.getElementById("title").value = pkg.title;
@@ -183,7 +179,7 @@ const event_admin = {
       );
       if (isConfirmed) {
         try {
-          await fetch(`http://13.51.121.56:3000/events/${id}`, {
+          await fetch(`http://16.171.208.155:3000/events/${id}`, {
             method: "DELETE",
           });
           fetchPackages();
